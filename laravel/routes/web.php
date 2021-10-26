@@ -109,6 +109,10 @@ Route::get(
     '/bio',[\App\Http\Controllers\BioController::class, 'mostrarBio']
 )->middleware(['auth'])->name('mostrarBio');
 
+Route::get(
+    '/bio/inserir',[\App\Http\Controllers\BioController::class, 'criarBio']
+)->middleware(['auth'])->name('criarBio');
+
 Route::post('/bio/atualizar/salvar', [\App\Http\Controllers\BioController::class, 'atualizarBio'])->middleware(['auth'])->name('salvarAtualizacaoBio');
 
 require __DIR__.'/auth.php';

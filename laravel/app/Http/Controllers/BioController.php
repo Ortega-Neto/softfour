@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bio;
-use App\Models\Utils;
 
 class BioController extends Controller
 {
@@ -15,16 +14,19 @@ class BioController extends Controller
         $bioDoUser = $bio->listarBio($id_user);
 
         if($bioDoUser == NULL){
-            $this->criarBio($bio, $id_user);
+            return redirect()->to('/bio/inserir'); 
         }
         else{
             return view('bio/listarBio', compact('bioDoUser'));
         }     
     }
     
-    private function criarBio(Bio $bio, $id_user) {
+    public function criarBio() {
+        $id_user = auth()->user()->id;
+        $bio = new Bio();
+        
         $bio->criarBio($id_user);
-        return redirect()->to('/route'); 
+        return redirect()->to('/bio'); 
     }
     
     public function atualizarBio(Request $request){        

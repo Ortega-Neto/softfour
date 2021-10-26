@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Serie extends Model
 {
     protected $fillable = [
+        'id_user',
         'titulo',
         'imagem',
         'ano_lancamento',
@@ -18,8 +19,11 @@ class Serie extends Model
     public function criarSerie($dados)
     {      
         try {
+            $id_user = auth()->user()->id;
+            
             DB::beginTransaction();
             $novaSerie = new Serie;
+            $novaSerie->id_user = $id_user;
             $novaSerie->titulo = $dados['titulo'];
             $novaSerie->imagem = $dados['imagem'];
             $novaSerie->ano_lancamento = $dados['ano_lancamento'];

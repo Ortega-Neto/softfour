@@ -10,6 +10,7 @@ class Comentario extends Model
 {
     protected $fillable = [
         'categoria',
+        'id_user',
         'id_obra',
         'comentario',
     ];
@@ -17,8 +18,11 @@ class Comentario extends Model
     public function criarComentario($dados)
     {      
         try {
+            $id_user = auth()->user()->id;
+            
             DB::beginTransaction();
             $novoComentario = new Comentario;
+            $novoComentario->id_user = $id_user;
             $novoComentario->categoria = $dados['categoria'];
             $novoComentario->id_obra = $dados['id_obra'];
             $novoComentario->comentario = $dados['comentario'];
