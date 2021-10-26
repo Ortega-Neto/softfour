@@ -51,7 +51,7 @@
                 <!-- Comentário -->
                 <div>
                     <x-label for="comentario" :value="__('Comentário')" />
-                    <textarea id="sinopse" class="block mt-1 w-full border-2" rows="10" type="text" name="comentario" required autofocus/>{{$comentario->comentario}}</textarea>
+                    <textarea id="sinopse" style="border:solid 1px" class="block mt-1 w-full border-2" rows="10" type="text" name="comentario" required autofocus/>{{$comentario->comentario}}</textarea>
                 </div>
                 
                 <!-- Categoria -->

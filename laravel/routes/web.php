@@ -105,4 +105,10 @@ Route::get('/comentarios/atualizar', [\App\Http\Controllers\ComentariosControlle
 
 Route::post('/comentarios/atualizar/salvar', [\App\Http\Controllers\ComentariosController::class, 'atualizarComentario'])->middleware(['auth'])->name('salvarAtualizacaoComentario');
 
+Route::get(
+    '/bio',[\App\Http\Controllers\BioController::class, 'mostrarBio']
+)->middleware(['auth'])->name('mostrarBio');
+
+Route::post('/bio/atualizar/salvar', [\App\Http\Controllers\BioController::class, 'atualizarBio'])->middleware(['auth'])->name('salvarAtualizacaoBio');
+
 require __DIR__.'/auth.php';

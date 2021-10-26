@@ -49,7 +49,7 @@
                     @foreach ($comentarios as $comentario)
                     <tr>                   
                         <td> 
-                            <textarea class="mt-1 w-full border-2" rows="10" cols="100" type="text"/>{{ $comentario->comentario }}</textarea> 
+                            <textarea style="border:solid 1px" class="mt-1 w-full border-2" rows="10" cols="100" type="text"/>{{ $comentario->comentario }}</textarea> 
                             
                             <button class="mr-1 ml-1 button3"> 
                                 <a href="{{route('atualizarComentario')}}?id={{$comentario->id}}&id_obra={{$id_obra}}&categoria={{$categoria}}">Editar</a>

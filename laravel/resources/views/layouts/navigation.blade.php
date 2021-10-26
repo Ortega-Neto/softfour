@@ -17,6 +17,13 @@
                     </x-nav-link>
                 </div>
                 
+                <!-- Bio -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('mostrarBio') }}" :active="request()->routeIs('inicio')">
+                        {{ __('Bio') }}
+                    </x-nav-link>
+                </div>
+                
                  <!-- Filmes -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('listarFilmes') }}" :active="request()->routeIs('inicio')">
