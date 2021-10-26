@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Git/softfour/laravel/resources/views/layouts/navigation.blade.php</file>
+            <file>file:/D:/Git/softfour/laravel/app/Http/Controllers/FilmesController.php</file>
+            <file>file:/D:/Git/softfour/laravel/app/Models/Livro.php</file>
+            <file>file:/D:/Git/softfour/laravel/routes/web.php</file>
+            <file>file:/D:/Git/softfour/laravel/app/Models/Bio.php</file>
+            <file>file:/D:/Git/softfour/laravel/resources/views/bio/listarBio.php</file>
+            <file>file:/D:/Git/softfour/laravel/app/Http/Controllers/BioController.php</file>
+        </group>
     </open-files>
 </project-private>

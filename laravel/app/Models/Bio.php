@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Bio extends Model
 {
@@ -15,12 +16,16 @@ class Bio extends Model
         'livro_favorito'
     ];
     
-    public function criarBio($dados)
+    public static function criarBio($id_user)
     {      
         try {
             DB::beginTransaction();
             $novaBio = new Bio;
-            $novaBio->id_user = $dados['id_user'];
+            $novaBio->id_user = $id_user;
+            $novaBio->descricao = "";
+            $novaBio->filme_favorito = "";
+            $novaBio->serie_favorita = "";
+            $novaBio->livro_favorito = "";
             $novaBio->save();
             DB::commit();
         } catch (\Exception $e) {
@@ -29,12 +34,11 @@ class Bio extends Model
         }
     }
     
-    public function listarBio($id) {
-        return DB::table('bio')->where('id', $id)->orderBy('created_at')->get();
+    public function listarBio($id_user) {
+        return DB::table('bios')->where('id_user', $id_user)->orderBy('created_at')->first();
     }
     
-    public function atualizarBio($dados) {        
-       
+    public function atualizarBio($dados) {
         try {
             $bio = Bio::find($dados['id']);
             
