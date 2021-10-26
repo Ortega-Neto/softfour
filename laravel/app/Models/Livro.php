@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Livro extends Model
 {
     protected $fillable = [
+        'id_user',
         'titulo',
         'imagem',
         'ano_lancamento',
@@ -18,8 +19,11 @@ class Livro extends Model
     public function criarlivro($dados)
     {      
         try {
+            $id_user = auth()->user()->id;
+            
             DB::beginTransaction();
             $novolivro = new livro;
+            $novolivro->id_user = $id_user;
             $novolivro->titulo = $dados['titulo'];
             $novolivro->imagem = $dados['imagem'];
             $novolivro->ano_lancamento = $dados['ano_lancamento'];

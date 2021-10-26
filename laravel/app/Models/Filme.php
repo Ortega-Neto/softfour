@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Filme extends Model
 {
     protected $fillable = [
+        'id_user',
         'titulo',
         'imagem',
         'ano_lancamento',
@@ -18,8 +19,11 @@ class Filme extends Model
     public function criarFilme($dados)
     {      
         try {
+            $id_user = auth()->user()->id;
+            
             DB::beginTransaction();
             $novoFilme = new Filme;
+            $novoFilme->id_user = $id_user;
             $novoFilme->titulo = $dados['titulo'];
             $novoFilme->imagem = $dados['imagem'];
             $novoFilme->ano_lancamento = $dados['ano_lancamento'];

@@ -15,6 +15,7 @@ class CreateLivros extends Migration
     {
         Schema::create('livros', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_user');
             $table->string('titulo', 50);
             $table->string('imagem', 50);
             $table->string('ano_lancamento', 4);
