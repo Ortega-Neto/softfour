@@ -39,6 +39,7 @@ class FilmesController extends Controller
     }
     
     public function listarFilmes() {
+        $id_user = auth()->user()->id;
         $filme = new Filme();
         
         $filmes = $filme->listarFilmes();
@@ -47,7 +48,7 @@ class FilmesController extends Controller
             $f->imagem =  Utils::getPathImagens() . $f->imagem;
         }
         
-        return view('filmes/listarFilmes', compact('filmes'));
+        return view('filmes/listarFilmes', compact('filmes', 'id_user'));
     }
     
     public function deletarFilme(Request $request) {

@@ -45,6 +45,7 @@ class ComentariosController extends Controller
     }
     
     public function listarComentarios(Request $request) {
+        $id_user = auth()->user()->id;
         $categoria = $_GET['categoria'];
         $id_obra = $_GET['id'];        
         
@@ -55,7 +56,7 @@ class ComentariosController extends Controller
         $comentario = new Comentario();
         $comentarios = $comentario->listarComentariosDaObra($id_obra, $categoria);
 
-        return view('comentarios/listarComentarios', compact('id_obra', 'categoria', 'comentarios', 'obra'));
+        return view('comentarios/listarComentarios', compact('id_obra', 'categoria', 'comentarios', 'obra', 'id_user'));
     }
     
     

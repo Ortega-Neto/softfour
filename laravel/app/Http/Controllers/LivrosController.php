@@ -39,6 +39,7 @@ class LivrosController extends Controller
     }
     
     public function listarLivros() {
+        $id_user = auth()->user()->id;
         $livro = new Livro();
         
         $livros = $livro->listarlivros();
@@ -47,7 +48,7 @@ class LivrosController extends Controller
             $f->imagem =  Utils::getPathImagens() . $f->imagem;
         }
         
-        return view('livros/listarlivros', compact('livros'));
+        return view('livros/listarlivros', compact('livros', 'id_user'));
     }
     
     public function deletarLivro(Request $request) {

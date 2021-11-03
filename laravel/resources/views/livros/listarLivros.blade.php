@@ -33,8 +33,10 @@
             </div>
             
             <div class="row-0">
-                <a href="{{route('atualizarLivro')}}?id={{$livro->id}}" class="link-0">Editar</a>
-                <a href="{{route('deletarLivro')}}?id={{$livro->id}}" class="link-0">Excluir</a>
+                @if ($livro->id_user === $id_user)
+                    <a href="{{route('atualizarLivro')}}?id={{$livro->id}}" class="link-0">Editar</a>
+                    <a href="{{route('deletarLivro')}}?id={{$livro->id}}" class="link-0">Excluir</a>
+                @endif
                 
                 <div class="col-botao">
                     <button class="button3">

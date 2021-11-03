@@ -33,9 +33,11 @@
             </div>
             
             <div class="row-0">
-                <a href="{{route('atualizarSerie')}}?id={{$serie->id}}" class="link-0">Editar</a>
-                <a href="{{route('deletarSerie')}}?id={{$serie->id}}" class="link-0">Excluir</a>
-                
+                @if ($serie->id_user === $id_user)
+                    <a href="{{route('atualizarSerie')}}?id={{$serie->id}}" class="link-0">Editar</a>
+                    <a href="{{route('deletarSerie')}}?id={{$serie->id}}" class="link-0">Excluir</a>
+                @endif
+                    
                 <div class="col-botao">
                     <button class="button3">
                         <a href="{{route('listarComentarios')}}?id={{$serie->id}}&categoria=S">Comentários</a>

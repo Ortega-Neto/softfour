@@ -39,6 +39,7 @@ class SeriesController extends Controller
     }
     
     public function listarSeries() {
+        $id_user = auth()->user()->id;
         $serie = new Serie();
         
         $series = $serie->listarSeries();
@@ -47,7 +48,7 @@ class SeriesController extends Controller
             $s->imagem =  Utils::getPathImagens() . $s->imagem;
         }
         
-        return view('series/listarSeries', compact('series'));
+        return view('series/listarSeries', compact('series', 'id_user'));
     }
     
     public function deletarSerie(Request $request) {

@@ -51,13 +51,15 @@
                         <td> 
                             <textarea style="border:solid 1px" class="mt-1 w-full border-2" rows="10" cols="100" type="text"/>{{ $comentario->comentario }}</textarea> 
                             
-                            <button class="mr-1 ml-1 button3"> 
-                                <a href="{{route('atualizarComentario')}}?id={{$comentario->id}}&id_obra={{$id_obra}}&categoria={{$categoria}}">Editar</a>
-                            <button>
-            
-                            <button class="mr-1 ml-1 button4">
-                                <a href="{{route('deletarComentario')}}?id={{$comentario->id}}&id_obra={{$id_obra}}&categoria={{$categoria}}">Deletar</a>
-                            <button><br><br>
+                            @if ($comentario->id_user === $id_user)
+                                <button class="mr-1 ml-1 button3"> 
+                                    <a href="{{route('atualizarComentario')}}?id={{$comentario->id}}&id_obra={{$id_obra}}&categoria={{$categoria}}">Editar</a>
+                                <button>
+
+                                <button class="mr-1 ml-1 button4">
+                                    <a href="{{route('deletarComentario')}}?id={{$comentario->id}}&id_obra={{$id_obra}}&categoria={{$categoria}}">Deletar</a>
+                                <button><br><br>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
