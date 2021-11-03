@@ -23,7 +23,7 @@
             
             <div class="row">
                 <div class="col-img">
-                    <img class="img-0" src=" {{$filme->imagem}}" width="300" height="400">
+                    <img class="img-0" src="{{$filme->imagem}}" width="300" height="400">
                 </div>
                 <div class="col-3">
                     <p> <strong>Data de Lançamento:</strong> {{ $filme->ano_lancamento }}</p>

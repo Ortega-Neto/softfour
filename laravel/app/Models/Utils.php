@@ -12,6 +12,8 @@ class Utils extends Model
     }
     
     public static function getPathImagens(){
-        return 'http://localhost/softfour/laravel/storage/app/public/imagens/';
+        $path = storage_path();
+        $path = str_replace("\\", "/", $path);
+        return $path . "/app/public/imagens/";
     }
 }
